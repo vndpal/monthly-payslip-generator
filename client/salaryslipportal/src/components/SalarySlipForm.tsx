@@ -141,7 +141,7 @@ const FormComponent: React.FC<FormProps> = ({ handleApiResult }) => {
               <ErrorMessage name="lastName" component="div" />
             </div>
             <div>
-              <label>Annual Salary</label>
+              <label>Annual Salary ($)</label>
               <Field type="number" name="annualSalary" />
               <ErrorMessage name="annualSalary" component="div" />
             </div>

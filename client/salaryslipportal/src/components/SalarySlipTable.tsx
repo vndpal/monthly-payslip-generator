@@ -29,24 +29,45 @@ const SalarySlipComponent: React.FC<SalarySlipProps> = ({ payslipData }) => {
           </tr>
           <tr>
             <td className="label">Gross Income:</td>
-            <td>{payslipData.grossIncome.toFixed(2)}</td>
+            <td>
+              <CurrencyDisplay value={payslipData.grossIncome} />
+            </td>
           </tr>
           <tr>
             <td className="label">Income Tax:</td>
-            <td>{payslipData.incomeTax.toFixed(2)}</td>
+            <td>
+              <CurrencyDisplay value={payslipData.incomeTax} />
+            </td>
           </tr>
           <tr>
             <td className="label">Net Income:</td>
-            <td>{payslipData.netIncome.toFixed(2)}</td>
+            <td>
+              <CurrencyDisplay value={payslipData.netIncome} />
+            </td>
           </tr>
           <tr>
             <td className="label">Super:</td>
-            <td>{payslipData.super.toFixed(2)}</td>
+            <td>
+              <CurrencyDisplay value={payslipData.super} />
+            </td>
           </tr>
         </tbody>
       </table>
     </div>
   );
+};
+
+interface CurrencyDisplayProps {
+  value: number;
+}
+
+const CurrencyDisplay: React.FC<CurrencyDisplayProps> = ({ value }) => {
+  const formattedValue = value.toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD",
+  });
+
+  return <span>{formattedValue}</span>;
 };
 
 export default SalarySlipComponent;
