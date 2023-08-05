@@ -15,8 +15,6 @@ namespace PaySlipGenerator.Tests.Common
         [InlineData("1234567.8901%", 12345.678901)]
         public void StringPercentageToDecimal_ShouldConvertCorrectly(string input, decimal expectedOutput)
         {
-            // Arrange
-
             // Act
             var result = Helper.StringPercentageToDecimal(input);
 
@@ -39,8 +37,6 @@ namespace PaySlipGenerator.Tests.Common
         [InlineData(Month.December, "01 December - 31 December")]
         public void GetFirstAndLastDateOfMonth_ShouldReturnCorrectString(Month month, string expectedOutput)
         {
-            // Arrange
-
             // Act
             var result = Helper.GetFirstAndLastDateOfMonth(month);
 

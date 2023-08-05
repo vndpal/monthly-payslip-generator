@@ -66,6 +66,10 @@ namespace PaySlipGenerator.Tests.Controllers
             Assert.Equal(StatusCodes.Status500InternalServerError, result.StatusCode);
         }
 
+        /// <summary>
+        /// Get mocked employee details for testing
+        /// </summary>
+        /// <returns>EmployeeDetails object</returns>
         private EmployeeDetails getTestEmployeeDetails()
         {
             var employeeDetails = new EmployeeDetails
