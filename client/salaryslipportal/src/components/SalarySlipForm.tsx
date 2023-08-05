@@ -5,8 +5,7 @@ import * as Yup from "yup";
 import { toast } from "react-toastify";
 import "./SalarySlipForm.css";
 
-const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL || "https://localhost:7213/api";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 interface FormProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
