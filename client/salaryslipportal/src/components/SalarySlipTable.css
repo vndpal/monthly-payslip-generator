@@ -1,0 +1,31 @@
+.salary-slip {
+  max-width: 400px;
+  max-height: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-family: Arial, sans-serif;
+}
+
+.salary-slip h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.salary-slip table {
+  width: 100%;
+}
+
+.salary-slip .label {
+  font-weight: bold;
+}
+
+.salary-slip td {
+  padding: 8px;
+  border-bottom: 1px solid #ccc;
+}
+
+.salary-slip tr:last-child td {
+  border-bottom: none;
+}

@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "dgSpecHash": "cJIQvC+io8qZ4sYIFRWQ+q9KZTPIexnqfwzMc5NQGtj2qtdUiB8jJCGkxvwp/q1xCfiVzc+3hk4fKMVUIAH5Ew==",
+  "success": true,
+  "projectFilePath": "E:\\Datacom\\PaySlipGenerator\\PaySlipGenerator.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Vinod\\.nuget\\packages\\fluentvalidation\\11.0.0\\fluentvalidation.11.0.0.nupkg.sha512",
+    "C:\\Users\\Vinod\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.0.0\\fluentvalidation.aspnetcore.11.0.0.nupkg.sha512",
+    "C:\\Users\\Vinod\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.0.0\\fluentvalidation.dependencyinjectionextensions.11.0.0.nupkg.sha512",
+    "C:\\Users\\Vinod\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\Vinod\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\2.1.0\\microsoft.extensions.dependencyinjection.abstractions.2.1.0.nupkg.sha512",
+    "C:\\Users\\Vinod\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\Vinod\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.17.2\\microsoft.visualstudio.azure.containers.tools.targets.1.17.2.nupkg.sha512",
+    "C:\\Users\\Vinod\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "C:\\Users\\Vinod\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "C:\\Users\\Vinod\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\Vinod\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}

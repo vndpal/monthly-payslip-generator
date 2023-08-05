@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33530.505
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaySlipGenerator", "PaySlipGenerator.csproj", "{FC01531A-07CB-4E54-8D18-ABB3EB9E32B3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaySlipGenerator.Tests", "..\PaySlipGenerator.Tests\PaySlipGenerator.Tests.csproj", "{037BE209-89FE-4880-8625-BBC67E6959D7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FC01531A-07CB-4E54-8D18-ABB3EB9E32B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC01531A-07CB-4E54-8D18-ABB3EB9E32B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC01531A-07CB-4E54-8D18-ABB3EB9E32B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC01531A-07CB-4E54-8D18-ABB3EB9E32B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{037BE209-89FE-4880-8625-BBC67E6959D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{037BE209-89FE-4880-8625-BBC67E6959D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{037BE209-89FE-4880-8625-BBC67E6959D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{037BE209-89FE-4880-8625-BBC67E6959D7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D07C994F-9E0C-4275-AEDD-7241CAF92593}
+	EndGlobalSection
+EndGlobal
