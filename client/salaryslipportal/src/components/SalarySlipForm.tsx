@@ -4,6 +4,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { toast } from "react-toastify";
 import "./SalarySlipForm.css";
+import { useState } from "react";
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
@@ -68,8 +69,10 @@ const validationSchema = Yup.object().shape({
 });
 
 const FormComponent: React.FC<FormProps> = ({ handleApiResult }) => {
+  const [loading, setLoading] = useState(false);
   const handleSubmit = async (values: FormValues) => {
     try {
+      setLoading(true);
       // // Convert payPeriod to a number before sending the request
       const numericPayPeriod = parseInt(values.payPeriod.toString(), 10);
       const superRatePercentage = values.superRate.toString() + "%";
@@ -85,7 +88,9 @@ const FormComponent: React.FC<FormProps> = ({ handleApiResult }) => {
         handleApiResult(null);
         toast.error("something went wrong");
       }
+      setLoading(false);
     } catch (error) {
+      setLoading(false);
       if (axios.isAxiosError(error)) {
         const axiosError = error as AxiosError;
         if (axiosError.response) {
@@ -112,7 +117,12 @@ const FormComponent: React.FC<FormProps> = ({ handleApiResult }) => {
   };
 
   return (
-    <div className="form-container">
+    <div className={`form-container ${loading ? "blur" : ""}`}>
+      {loading && (
+        <div className="loader-container">
+          <div className="loader" />
+        </div>
+      )}
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
