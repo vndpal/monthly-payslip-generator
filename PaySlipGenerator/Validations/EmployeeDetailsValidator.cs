@@ -4,13 +4,15 @@ using static PaySlipGenerator.Common.Common;
 
 namespace PaySlipGenerator.Validations
 {
+    /// <summary>
+    /// Validator class to validate the properties of the <see cref="EmployeeDetails"/> model.
+    /// </summary>
     public class EmployeeDetailsValidator : AbstractValidator<EmployeeDetails>
     {
         public EmployeeDetailsValidator()
         {
             RuleFor(p => p.FirstName)
             .NotEmpty().WithMessage("{PropertyName} should not be emtpy")
-
             .Length(2, 50).WithMessage("Length ({TotalLength}) of {PropertyName} Invalid");
 
             RuleFor(p => p.FirstName)
@@ -39,6 +41,7 @@ namespace PaySlipGenerator.Validations
             .Must(BeValidPayPeriod).WithMessage("Invalid Pay Period. Please enter Pay period from 1 to 12 indicating Month number. 1 for January, 2 for Febuary and so on");
         }
 
+        // Custom validation method to check if the name contains only valid characters
         protected bool BeValidName(string name)
         {
             name = name.Replace(" ", "");
@@ -47,6 +50,7 @@ namespace PaySlipGenerator.Validations
             return name.All(Char.IsLetter);
         }
 
+        // Custom validation method to check if the value is an integer
         protected bool BeAnInteger(int salary)
         {
             return salary % 1 == 0;

@@ -3,8 +3,17 @@ using static PaySlipGenerator.Common.Common;
 
 namespace PaySlipGenerator.Common
 {
+    /// <summary>
+    /// This is an helper class containing helper methods throughout applicaiton
+    /// </summary>
     public class Helper
     {
+        /// <summary>
+        /// This method converts percentage value to a valid decimal value
+        /// e.g. input 12% output 0.12
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns>A dceimal value from valid percentage string</returns>
         public static decimal StringPercentageToDecimal(string input)
         {
             const string pattern = @"^(\d*.+\d*)%$";
@@ -12,6 +21,13 @@ namespace PaySlipGenerator.Common
             return Convert.ToDecimal(result.Groups[1].Value) * 0.01m;
         }
 
+        /// <summary>
+        /// This method will return first and last date of the month based on Month passed
+        /// e.g. March will return 01 March - 31 March
+        /// This method considers the past one year for calculation
+        /// </summary>
+        /// <param name="month"></param>
+        /// <returns>A string with first and last date of month e.g. 01 March - 31 March</returns>
         public static string GetFirstAndLastDateOfMonth(Month month)
         {
             // Get the current date
