@@ -50,7 +50,7 @@ namespace PaySlipGenerator.Services
 
         private static decimal CalculateIncomeThreshold(decimal minThreshold)
         {
-            // Calculate the income threshold as (minThreshold - 1) to avoid overlapping with the previous bracket.
+            // Calculate the income threshold as (min - 1) to avoid overlapping with the previous bracket.
             return (minThreshold - 1 > 0) ? minThreshold - 1 : 0;
         }
     }

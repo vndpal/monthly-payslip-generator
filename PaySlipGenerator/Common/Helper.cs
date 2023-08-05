@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using PaySlipGenerator.Models;
+using System.Text.RegularExpressions;
 using static PaySlipGenerator.Common.Common;
 
 namespace PaySlipGenerator.Common
@@ -49,6 +50,24 @@ namespace PaySlipGenerator.Common
             string lastDateStr = lastDateOfMonth.ToString("dd MMMM");
 
             return $"{firstDateStr} - {lastDateStr}";
+        }
+
+        /// <summary>
+        /// Combines the first name and last name to create the full name of an employee.
+        /// </summary>
+        /// <param name="firstName">The first name of the employee.</param>
+        /// <param name="lastName">The last name of the employee.</param>
+        /// <returns>The full name of the employee.</returns>
+        public static string GetFullNameOfEmployee(string firstName, string lastName)
+        {
+            // Trim the first name and last name to remove leading and trailing spaces.
+            string trimmedFirstName = firstName.Trim();
+            string trimmedLastName = lastName.Trim();
+
+            // Combine the trimmed first name and last name to create the full name.
+            string fullName = $"{trimmedFirstName} {trimmedLastName}";
+
+            return fullName;
         }
     }
 }

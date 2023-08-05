@@ -43,7 +43,7 @@ namespace PaySlipGenerator.Services
             {
                 GrossIncome = grossIncome,
                 IncomeTax = incomeTax,
-                Name = employeeDetails.FirstName.Trim() + " " + employeeDetails.LastName.Trim(),
+                Name = Helper.GetFullNameOfEmployee(employeeDetails.FirstName, employeeDetails.LastName),
                 NetIncome = grossIncome - incomeTax,
                 PayPeriod = Helper.GetFirstAndLastDateOfMonth(employeeDetails.PayPeriod),
                 Super = super
