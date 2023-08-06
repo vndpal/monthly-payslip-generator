@@ -38,7 +38,7 @@ namespace PaySlipGenerator.Services
             var taxTable = _taxTableGenerator.GenerateTaxTable();
 
             // Find the appropriate tax bracket based on the given salary.
-            var taxBracket = taxTable.Single(x => x.StartRange <= salary && x.EndRange >= salary).IncomeTaxBracket;
+            var taxBracket = taxTable.Single(x => x.StartRange <= salary && x.EndRange >= salary);
 
             // Calculate the tax amount for the portion of income within the tax bracket range.
             var marginalTaxableAmount = salary - taxBracket.MinIncomeRange;

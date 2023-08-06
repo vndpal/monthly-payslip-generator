@@ -23,10 +23,10 @@ namespace PaySlipGenerator.Tests.Services
             var taxTableGeneratorMock = new Mock<ITaxTableGenerator>();
             var taxTable = new List<TaxTable>
         {
-            new TaxTable { StartRange = 0, EndRange = 50000, IncomeTaxBracket = new TaxBracket { MinIncomeRange = 0, TaxRate = 0.09m, TotalTaxFromPreviousBracket = 0 } },
-            new TaxTable { StartRange = 50001, EndRange = 100000, IncomeTaxBracket = new TaxBracket { MinIncomeRange = 50000, TaxRate = 0.175m, TotalTaxFromPreviousBracket = 4500 } },
-            new TaxTable { StartRange = 100001, EndRange = 200000, IncomeTaxBracket = new TaxBracket { MinIncomeRange = 100000, TaxRate = 0.25m, TotalTaxFromPreviousBracket = 13250 } },
-            new TaxTable { StartRange = 200001, EndRange = decimal.MaxValue, IncomeTaxBracket = new TaxBracket { MinIncomeRange = 200000, TaxRate = 0.3m, TotalTaxFromPreviousBracket = 38250 } }
+            new TaxTable { StartRange = 0, EndRange = 50000, MinIncomeRange = 0, TaxRate = 0.09m, TotalTaxFromPreviousBracket = 0  },
+            new TaxTable { StartRange = 50001, EndRange = 100000, MinIncomeRange = 50000, TaxRate = 0.175m, TotalTaxFromPreviousBracket = 4500  },
+            new TaxTable { StartRange = 100001, EndRange = 200000, MinIncomeRange = 100000, TaxRate = 0.25m, TotalTaxFromPreviousBracket = 13250  },
+            new TaxTable { StartRange = 200001, EndRange = decimal.MaxValue, MinIncomeRange = 200000, TaxRate = 0.3m, TotalTaxFromPreviousBracket = 38250  }
         };
 
             taxTableGeneratorMock.Setup(x => x.GenerateTaxTable()).Returns(taxTable);

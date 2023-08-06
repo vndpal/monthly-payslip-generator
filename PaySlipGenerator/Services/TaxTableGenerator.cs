@@ -42,17 +42,13 @@ namespace PaySlipGenerator.Services
             // Calculate the income threshold based on the minimum threshold to avoid overlapping brackets.
             var incomeThreshold = CalculateIncomeThreshold(minThreshold);
 
-            // Create the tax bracket object for the income bracket.
-            TaxBracket taxBracket = new TaxBracket();
-            taxBracket.TotalTaxFromPreviousBracket = accumulatedTaxFromPreviousBracket;
-            taxBracket.TaxRate = marginalTaxRate;
-            taxBracket.MinIncomeRange = incomeThreshold;
-
             // Create the tax table entry for the income bracket.
             TaxTable taxTable = new TaxTable();
             taxTable.StartRange = minThreshold;
             taxTable.EndRange = maxThreshold;
-            taxTable.IncomeTaxBracket = taxBracket;
+            taxTable.TotalTaxFromPreviousBracket = accumulatedTaxFromPreviousBracket;
+            taxTable.TaxRate = marginalTaxRate;
+            taxTable.MinIncomeRange = incomeThreshold;
 
             return taxTable;
         }

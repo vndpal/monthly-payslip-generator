@@ -66,8 +66,8 @@ namespace PaySlipGenerator.Tests.Services
             Assert.Contains(taxTable, table =>
                 table.StartRange == minThreshold &&
                 table.EndRange >= maxThreshold &&
-                table.IncomeTaxBracket.TotalTaxFromPreviousBracket == accumulatedTax &&
-                table.IncomeTaxBracket.TaxRate == marginalTaxRate
+                table.TotalTaxFromPreviousBracket == accumulatedTax &&
+                table.TaxRate == marginalTaxRate
             );
         }
 
