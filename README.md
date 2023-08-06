@@ -160,7 +160,7 @@ In case of any errors, the API will return a JSON object with an error message f
 
 ## TODO
 
-- **Authentication & Authorization**: The API does not have any rate-limiting at the moment and anyone can access it to calculate their taxes.
+- **Authentication & Authorization**: Authentication and Authorization have not been implemented in the API as it falls outside the current scope. However, they can be added if required.
 - **Rate limiting**: The API does not have any rate-limiting at the moment, but excessive and abusive requests may be blocked to ensure fair usage for all users.
 
 ## Trade-Offs
