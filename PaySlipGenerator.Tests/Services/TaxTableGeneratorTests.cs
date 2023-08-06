@@ -20,7 +20,7 @@ namespace PaySlipGenerator.Tests.Services
                 {
                 new KeyValuePair<string, string>("TaxBrackets:0:MinThreshold", "0"),
                 new KeyValuePair<string, string>("TaxBrackets:0:MaxThreshold", "14000"),
-                new KeyValuePair<string, string>("TaxBrackets:0:AccumulatedTaxFromPreviousBracket", "0"),
+                new KeyValuePair<string, string>("TaxBrackets:0:TaxSlabNumber", "1"),
                 new KeyValuePair<string, string>("TaxBrackets:0:MarginalTaxRate", "0.105"),
                     // Add other tax brackets as needed...
                 })
@@ -38,21 +38,20 @@ namespace PaySlipGenerator.Tests.Services
             Assert.Equal(expectedCount,taxTable.Count());
         }
 
-        [Theory]
-        [InlineData(0, 14000, 0, 0.105)]
-        [InlineData(14001, 48000, 1470, 0.175)]
-        [InlineData(48001, 70000, 7420, 0.3)]
-        [InlineData(70001, 180000, 14020, 0.33)]
-        [InlineData(180001, 100000000, 50320, 0.39)]
-        public void GenerateTaxTable_ShouldContainCorrectRangesAndRates(decimal minThreshold, decimal maxThreshold, decimal accumulatedTax, decimal marginalTaxRate)
+        [Fact]
+        public void GenerateTaxTable_ShouldContainCorrectRangesAndRates()
         {
             var configuration = new ConfigurationBuilder()
                 .AddInMemoryCollection(new[]
                 {
-                new KeyValuePair<string, string>("TaxBrackets:0:MinThreshold", minThreshold.ToString()),
-                new KeyValuePair<string, string>("TaxBrackets:0:MaxThreshold", maxThreshold.ToString()),
-                new KeyValuePair<string, string>("TaxBrackets:0:AccumulatedTaxFromPreviousBracket", accumulatedTax.ToString()),
-                new KeyValuePair<string, string>("TaxBrackets:0:MarginalTaxRate", marginalTaxRate.ToString()),
+                new KeyValuePair<string, string>("TaxBrackets:0:MinThreshold", "0"),
+                new KeyValuePair<string, string>("TaxBrackets:0:MaxThreshold", "14000"),
+                new KeyValuePair<string, string>("TaxBrackets:0:TaxSlabNumber", "1"),
+                new KeyValuePair<string, string>("TaxBrackets:0:MarginalTaxRate", "0.105"),
+                new KeyValuePair<string, string>("TaxBrackets:1:MinThreshold", "14001"),
+                new KeyValuePair<string, string>("TaxBrackets:1:MaxThreshold", "40000"),
+                new KeyValuePair<string, string>("TaxBrackets:1:TaxSlabNumber", "2"),
+                new KeyValuePair<string, string>("TaxBrackets:1:MarginalTaxRate", "0.15"),
                 })
                 .Build();
             
@@ -64,28 +63,34 @@ namespace PaySlipGenerator.Tests.Services
 
             // Assert
             Assert.Contains(taxTable, table =>
-                table.StartRange == minThreshold &&
-                table.EndRange >= maxThreshold &&
-                table.TotalTaxFromPreviousBracket == accumulatedTax &&
-                table.TaxRate == marginalTaxRate
+                table.StartRange == 0 &&
+                table.EndRange >= 14000 &&
+                table.TaxRate == 0.105m &&
+                table.TotalTaxFromPreviousBracket == 0
+            ); ;
+            Assert.Contains(taxTable, table =>
+                table.StartRange == 14001 &&
+                table.EndRange >= 40000 &&
+                table.TaxRate == 0.15m &&
+                table.TotalTaxFromPreviousBracket == 1470
+
             );
         }
 
-        [Theory]
-        [InlineData(0, 14000, 0, 0.105)]
-        [InlineData(14001, 48000, 1470, 0.175)]
-        [InlineData(48001, 70000, 7420, 0.3)]
-        [InlineData(70001, 180000, 14020, 0.33)]
-        [InlineData(180001, 100000000, 50320, 0.39)]
-        public void GenerateTaxTable_ShouldHaveMonotonicIncreasingRanges(decimal minThreshold, decimal maxThreshold, decimal accumulatedTax, decimal marginalTaxRate)
+       [Fact]
+        public void GenerateTaxTable_ShouldHaveMonotonicIncreasingRanges()
         {
             var configuration = new ConfigurationBuilder()
                 .AddInMemoryCollection(new[]
                 {
-                new KeyValuePair<string, string>("TaxBrackets:0:MinThreshold", minThreshold.ToString()),
-                new KeyValuePair<string, string>("TaxBrackets:0:MaxThreshold", maxThreshold.ToString()),
-                new KeyValuePair<string, string>("TaxBrackets:0:AccumulatedTaxFromPreviousBracket", accumulatedTax.ToString()),
-                new KeyValuePair<string, string>("TaxBrackets:0:MarginalTaxRate", marginalTaxRate.ToString()),
+                new KeyValuePair<string, string>("TaxBrackets:0:MinThreshold", "0"),
+                new KeyValuePair<string, string>("TaxBrackets:0:MaxThreshold", "14000"),
+                new KeyValuePair<string, string>("TaxBrackets:0:TaxSlabNumber", "1"),
+                new KeyValuePair<string, string>("TaxBrackets:0:MarginalTaxRate", "0.105"),
+                new KeyValuePair<string, string>("TaxBrackets:1:MinThreshold", "14001"),
+                new KeyValuePair<string, string>("TaxBrackets:1:MaxThreshold", "40000"),
+                new KeyValuePair<string, string>("TaxBrackets:1:TaxSlabNumber", "2"),
+                new KeyValuePair<string, string>("TaxBrackets:1:MarginalTaxRate", "0.15"),
                 })
                 .Build();
             // Arrange

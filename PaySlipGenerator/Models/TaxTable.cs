@@ -29,5 +29,10 @@
         /// Gets or sets the minimum income range for this tax bracket.
         /// </summary>
         public decimal MinIncomeRange { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Tax Bracket Id.
+        /// </summary>
+        public decimal TaxBracketId { get; set; }
     }
 }
