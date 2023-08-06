@@ -102,11 +102,11 @@ Example Request Body:
 
 ```
 {
-    "firstName": "Vinod",
-    "lastName": "Pal",
-    "annualSalary": 12505066,
-    "superRate": "10%",
-    "payPeriod": 11
+    "firstName": "John",
+    "lastName": "Smith",
+    "annualSalary": 60050,
+    "superRate": 9%,
+    "payPeriod": 3
 }
 ```
 
@@ -127,12 +127,12 @@ Example Response Body:
 
 ```
 {
-    "name": "Vinod Pal",
-    "payPeriod": "01 November - 30 November",
-    "grossIncome": 1042088.83,
-    "incomeTax": 404757.98,
-    "netIncome": 637330.85,
-    "super": 104208.88
+    "name": "John Smith",
+    "payPeriod": "01 March – 31 March",
+    "grossIncome": 5004.17,
+    "incomeTax": 919.58,
+    "netIncome": 4084.59,
+    "super": 450.38,
 }
 ```
 
