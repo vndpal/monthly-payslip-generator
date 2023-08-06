@@ -155,9 +155,13 @@ In case of any errors, the API will return a JSON object with an error message f
 
 - **Authentication & Authorization**: The API does not have any rate-limiting at the moment and anyone can access it to calculate their taxes.
 - **Rate limiting**: The API does not have any rate-limiting at the moment, but excessive and abusive requests may be blocked to ensure fair usage for all users.
-- **Applicable to current tax structure only**: The API currently only support current tax structure.
 
 ## Trade-Offs
 
 - **GET vs POST** - Opted for POST instead of GET because we have a complex input structure, browsers doesn't cache post request by default, and POST is easier to configure future input structure.
 - **CORS Allowed** - Allowed CORS to all applications so that anyone can integrate it. For internal or SASS projects this should be only for few allowed applications.
+
+## Assumptions
+
+- **Tax slabs are configured correctly** - Tax slabs rates are configured correctly by the admin/support team.
+- **Applicable to current tax structure only**: The API currently only support current tax structure.

@@ -24,5 +24,7 @@
             December
         }
 
+        //Application constant for TaxBrackets key in appsetting.json
+        public static readonly string TaxBracketKey = "TaxBrackets";
     }
 }

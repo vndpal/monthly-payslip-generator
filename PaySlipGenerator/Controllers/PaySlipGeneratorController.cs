@@ -42,7 +42,7 @@ namespace PaySlipGenerator.Controllers
                 // TODO: Log the error in AppInsights or a file or DB
 
                 // An error occurred during processing, log the error and return 500 Internal Server Error
-                return StatusCode(StatusCodes.Status500InternalServerError, "Something went wrong");
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Something went wrong. Please try again after sometime of get in touch with support team. Error: {ex.Message}");
             }
             
         }

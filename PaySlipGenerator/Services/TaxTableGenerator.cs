@@ -1,6 +1,7 @@
 ﻿using PaySlipGenerator.Interfaces;
 using PaySlipGenerator.Models;
 using System.ComponentModel.DataAnnotations;
+using static PaySlipGenerator.Common.Common;
 
 namespace PaySlipGenerator.Services
 {
@@ -20,7 +21,7 @@ namespace PaySlipGenerator.Services
         /// <returns>A list of <see cref="TaxTable"/> objects representing the tax table.</returns>
         public List<TaxTable> GenerateTaxTable()
         {
-            var taxBrackets = _configuration.GetSection("TaxBrackets").Get<List<TaxBracketConfig>>();
+            var taxBrackets = _configuration.GetSection(TaxBracketKey).Get<List<TaxBracketConfig>>();
             // Create an empty list to store the tax table entries.
             List<TaxTable> taxTable = new List<TaxTable>();
 
