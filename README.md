@@ -172,3 +172,4 @@ In case of any errors, the API will return a JSON object with an error message f
 
 - **Tax slabs are configured correctly** - Tax slabs rates are configured correctly by the admin/support team.
 - **Applicable to current tax structure only**: The API currently only support current tax structure.
+- **Maximum Salary Restricted to 999999999**: The API has set a maximum salary limit of 999999999. Any salary value entered beyond this limit will result in a 400 Bad Request error. However, if needed, the API's maximum salary limit can be increased to accommodate higher values.

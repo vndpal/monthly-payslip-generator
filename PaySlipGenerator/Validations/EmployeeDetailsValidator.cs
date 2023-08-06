@@ -27,6 +27,7 @@ namespace PaySlipGenerator.Validations
 
             RuleFor(employee => employee.AnnualSalary)
             .NotNull().NotEmpty().WithMessage("{PropertyName} is required.")
+            .LessThanOrEqualTo(999999999).WithMessage("Maximum {PropertyName} supported is 999999999.")
             .GreaterThan(0).WithMessage("{PropertyName} must be greater than 0.")
             .Must(BeAnInteger).WithMessage("{PropertyName} must be an integer.");
 
