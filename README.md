@@ -2,8 +2,9 @@
 
 ## About the Project
 
-The Salary Slip Generator API allows you to generate salary slips for employees based on their provided information. This document provides a detailed explanation of how to use the API and the expected responses.
+The Salary Slip Generator allows you to generate salary slips for employees based on their provided information. This document provides a detailed explanation of how to use the API & Web UI.
 The application is build in .NET 6.
+The Web UI is built using Vite + React + Typescript
 
 ## Live Links
 
@@ -17,15 +18,15 @@ To get a local copy up and running, please follow these simple steps.
 
 ### Prerequisites
 
-Here is what you need to be able to run Cal.com.
+Here is what you need to be able to run Salary Slip Generator locally
 
 - Visual Studio 2022 (recommended)
 - .Net 6 SDK
 - Node.js (Version: >=15.x <17)
 
-## Development
+## Local Setup
 
-### Setup
+### Clone/download the code
 
 1. Clone the repo or download it.
 
@@ -56,7 +57,7 @@ Here is what you need to be able to run Cal.com.
    cd cliet/salaryslipporrtal
    ```
 
-2. Install all the dependancies using below command
+2. Install all the dependencies using below command
 
    ```sh
    npm i
@@ -67,6 +68,9 @@ Here is what you need to be able to run Cal.com.
    ```sh
    npm run dev
    ```
+
+4. If you get any error while running the Web UI locally after following above steps, please make sure that API endpoint is configured correctly in `.env.development`.
+   Currently it is configured to read API from `VITE_API_BASE_URL=https://localhost:7213/api/v1` port `7213`, please modify if API is running at different port at your machine.
 
 # Monthly Payslip Generator API Documentation
 
