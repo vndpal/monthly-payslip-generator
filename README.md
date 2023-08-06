@@ -3,14 +3,15 @@
 ## About the Project
 
 The Salary Slip Generator allows you to generate salary slips for employees based on their provided information. This document provides a detailed explanation of how to use the API & Web UI.
-The application is build in .NET 6.
-The Web UI is built using Vite + React + Typescript
+</br>The application is build in .NET 6.
+</br>The Web UI is built using Vite + React + Typescript
 
-## Live Links
+## Live Demo
 
-- API Link: https://salaryslip.azurewebsites.net/api/v1/PaySlipGenerator
-- Front-End: https://salaryslipapp.azurewebsites.net/
 - API docs: https://salaryslip.azurewebsites.net/swagger/index.html
+- API endpoint: https://salaryslip.azurewebsites.net/api/v1/PaySlipGenerator
+  </br>[See here about api details](#API-Details)
+- Front-End Web Interface: https://salaryslipapp.azurewebsites.net/
 
 ## Getting Started
 
@@ -77,6 +78,8 @@ Here is what you need to be able to run Salary Slip Generator locally
 ## Introduction
 
 The Salary Slip Generator API is a service that allows you to generate salary slips for employees based on their annual salary, super rate, and pay period. By sending a POST request to the API endpoint with appropriate data in the request body, you can receive a detailed salary slip for the given employee.
+
+<a id="API-Details"></a>
 
 ## API Endpoint
 
