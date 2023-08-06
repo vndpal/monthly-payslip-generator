@@ -36,6 +36,8 @@ builder.Services.AddCors(p => p.AddPolicy("corsapp", builder =>
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+//Allowing swagger doc for all the environments
+//Remove Production from here if not needed anymore
 if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 {
     app.UseSwagger();
