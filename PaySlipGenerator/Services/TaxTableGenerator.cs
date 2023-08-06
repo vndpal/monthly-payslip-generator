@@ -9,21 +9,30 @@ namespace PaySlipGenerator.Services
     /// </summary>
     public class TaxTableGenerator : ITaxTableGenerator
     {
+        private IConfiguration _configuration;
+        public TaxTableGenerator(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
         /// <summary>
         /// Generates the tax table containing income brackets and corresponding tax rates.
         /// </summary>
         /// <returns>A list of <see cref="TaxTable"/> objects representing the tax table.</returns>
         public List<TaxTable> GenerateTaxTable()
         {
+            var taxBrackets = _configuration.GetSection("TaxBrackets").Get<List<TaxBracketConfig>>();
             // Create an empty list to store the tax table entries.
             List<TaxTable> taxTable = new List<TaxTable>();
 
-            // Add tax table entries for different income brackets and tax rates.
-            taxTable.Add(createTaxTable(0, 14000, 0, 0.105m));
-            taxTable.Add(createTaxTable(14001, 48000, 1470, 0.175m));
-            taxTable.Add(createTaxTable(48001, 70000, 7420, 0.3m));
-            taxTable.Add(createTaxTable(70001, 180000, 14020, 0.33m));
-            taxTable.Add(createTaxTable(180001, decimal.MaxValue, 50320, 0.39m));
+            foreach (var bracket in taxBrackets)
+            {
+                taxTable.Add(createTaxTable(
+                    bracket.MinThreshold,
+                    bracket.MaxThreshold,
+                    bracket.AccumulatedTaxFromPreviousBracket,
+                    bracket.MarginalTaxRate
+                ));
+            }
 
             return taxTable;
         }

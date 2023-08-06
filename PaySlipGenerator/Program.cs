@@ -1,5 +1,7 @@
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using PaySlipGenerator.Interfaces;
 using PaySlipGenerator.Models;
 using PaySlipGenerator.Services;
@@ -12,6 +14,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddTransient<IPaySlipInformation, PaySlipInformation>();
 builder.Services.AddTransient<ITaxTableGenerator, TaxTableGenerator>();
 builder.Services.AddTransient<ITaxCalculator, TaxCalculator>();
+
 
 builder.Services.AddControllers().AddFluentValidation(options =>
 {
@@ -31,6 +34,14 @@ builder.Services.AddCors(p => p.AddPolicy("corsapp", builder =>
 {
     builder.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
 }));
+
+var configuration = new ConfigurationBuilder()
+            .SetBasePath(Directory.GetParent(AppContext.BaseDirectory).FullName)
+            .AddJsonFile("appsettings.json", false)
+            .Build();
+
+// Add access to generic IConfigurationRoot
+builder.Services.AddSingleton<IConfigurationRoot>(configuration);
 
 
 var app = builder.Build();
